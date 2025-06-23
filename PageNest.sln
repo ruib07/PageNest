@@ -1,0 +1,87 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36212.18
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "frontend", "frontend", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "backend", "backend", "{6A792F56-8651-40D0-8F25-17499DF10021}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{CF15989B-F275-4F4B-A62A-F2D64E2AC92A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{516DA593-5D93-4009-8B94-F20CFFEED372}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PageNest.API", "backend\src\PageNest.API\PageNest.API.csproj", "{EFF3C478-1406-8C6D-3D00-376321384CC4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PageNest.Application", "backend\src\PageNest.Application\PageNest.Application.csproj", "{CC681B54-D987-4081-9CF2-F1372F14C66E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PageNest.Domain", "backend\src\PageNest.Domain\PageNest.Domain.csproj", "{0309A6E5-847E-46E9-94BC-4B7B5DDF049A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PageNest.Infrastructure", "backend\src\PageNest.Infrastructure\PageNest.Infrastructure.csproj", "{6235B40B-B032-4842-9072-096AB464F9CF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PageNest.Workers", "backend\src\PageNest.Workers\PageNest.Workers.csproj", "{DAF22BF0-0813-4985-B530-0A71101F18FB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PageNest.IntegrationTests", "backend\tests\PageNest.IntegrationTests\PageNest.IntegrationTests.csproj", "{5F464393-85B5-4C12-84A7-1B4D99E38330}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PageNest.UnitTests", "backend\tests\PageNest.UnitTests\PageNest.UnitTests.csproj", "{7E0B063F-68A1-47A0-A36B-27CACB15462A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PageNest.TestUtils", "backend\tests\PageNest.TestUtils\PageNest.TestUtils.csproj", "{D9A66DCA-E4D1-4E69-9263-3ED0FA760B29}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EFF3C478-1406-8C6D-3D00-376321384CC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFF3C478-1406-8C6D-3D00-376321384CC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFF3C478-1406-8C6D-3D00-376321384CC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFF3C478-1406-8C6D-3D00-376321384CC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC681B54-D987-4081-9CF2-F1372F14C66E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC681B54-D987-4081-9CF2-F1372F14C66E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC681B54-D987-4081-9CF2-F1372F14C66E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC681B54-D987-4081-9CF2-F1372F14C66E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0309A6E5-847E-46E9-94BC-4B7B5DDF049A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0309A6E5-847E-46E9-94BC-4B7B5DDF049A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0309A6E5-847E-46E9-94BC-4B7B5DDF049A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0309A6E5-847E-46E9-94BC-4B7B5DDF049A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6235B40B-B032-4842-9072-096AB464F9CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6235B40B-B032-4842-9072-096AB464F9CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6235B40B-B032-4842-9072-096AB464F9CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6235B40B-B032-4842-9072-096AB464F9CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DAF22BF0-0813-4985-B530-0A71101F18FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAF22BF0-0813-4985-B530-0A71101F18FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAF22BF0-0813-4985-B530-0A71101F18FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAF22BF0-0813-4985-B530-0A71101F18FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F464393-85B5-4C12-84A7-1B4D99E38330}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F464393-85B5-4C12-84A7-1B4D99E38330}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F464393-85B5-4C12-84A7-1B4D99E38330}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F464393-85B5-4C12-84A7-1B4D99E38330}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E0B063F-68A1-47A0-A36B-27CACB15462A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E0B063F-68A1-47A0-A36B-27CACB15462A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E0B063F-68A1-47A0-A36B-27CACB15462A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E0B063F-68A1-47A0-A36B-27CACB15462A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9A66DCA-E4D1-4E69-9263-3ED0FA760B29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9A66DCA-E4D1-4E69-9263-3ED0FA760B29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9A66DCA-E4D1-4E69-9263-3ED0FA760B29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9A66DCA-E4D1-4E69-9263-3ED0FA760B29}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CF15989B-F275-4F4B-A62A-F2D64E2AC92A} = {6A792F56-8651-40D0-8F25-17499DF10021}
+		{516DA593-5D93-4009-8B94-F20CFFEED372} = {6A792F56-8651-40D0-8F25-17499DF10021}
+		{EFF3C478-1406-8C6D-3D00-376321384CC4} = {CF15989B-F275-4F4B-A62A-F2D64E2AC92A}
+		{CC681B54-D987-4081-9CF2-F1372F14C66E} = {CF15989B-F275-4F4B-A62A-F2D64E2AC92A}
+		{0309A6E5-847E-46E9-94BC-4B7B5DDF049A} = {CF15989B-F275-4F4B-A62A-F2D64E2AC92A}
+		{6235B40B-B032-4842-9072-096AB464F9CF} = {CF15989B-F275-4F4B-A62A-F2D64E2AC92A}
+		{DAF22BF0-0813-4985-B530-0A71101F18FB} = {CF15989B-F275-4F4B-A62A-F2D64E2AC92A}
+		{5F464393-85B5-4C12-84A7-1B4D99E38330} = {516DA593-5D93-4009-8B94-F20CFFEED372}
+		{7E0B063F-68A1-47A0-A36B-27CACB15462A} = {516DA593-5D93-4009-8B94-F20CFFEED372}
+		{D9A66DCA-E4D1-4E69-9263-3ED0FA760B29} = {516DA593-5D93-4009-8B94-F20CFFEED372}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B0522827-ACE8-4AA6-AF6D-3CCA3A2865E2}
+	EndGlobalSection
+EndGlobal
