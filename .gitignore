@@ -361,3 +361,5 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/backend/src/PageNest.API/appsettings.json
+/backend/src/PageNest.Workers/appsettings.json
