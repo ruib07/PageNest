@@ -17,4 +17,6 @@ public class Book
     public Category Category { get; set; }
     public ICollection<BookGenre> BookGenres { get; set; }
     public ICollection<Review> Reviews { get; set; }
+    public ICollection<CartItem> CartItems { get; set; }
+    public ICollection<OrderItem> OrderItems { get; set; }
 }
