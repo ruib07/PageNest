@@ -4,4 +4,5 @@ public static class SeederDTO
 {
     public record GenreSeederDTO(Guid Id, string Name);
     public record CategorySeederDTO(Guid Id, string Name);
+    public record AdminSeederDTO(Guid Id, string Name, string Email, string Password);
 }

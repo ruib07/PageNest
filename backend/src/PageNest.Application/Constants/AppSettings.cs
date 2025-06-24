@@ -15,4 +15,5 @@ public class AppSettings
 
     public const string GenreSeedSection = "SeedGenres";
     public const string CategorySeedSection = "SeedCategories";
+    public const string AdminSeedSection = "SeedAdmins";
 }

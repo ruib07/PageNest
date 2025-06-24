@@ -1,8 +1,10 @@
 ﻿using Microsoft.Extensions.Configuration;
 using PageNest.Application.Constants;
+using PageNest.Application.Helpers;
 using PageNest.Application.Interfaces;
 using PageNest.Application.Shared.DTOs;
 using PageNest.Domain.Entities;
+using PageNest.Domain.Enums;
 using PageNest.Infrastructure.Data.Context;
 
 namespace PageNest.Infrastructure.Data.Seed;
@@ -51,6 +53,27 @@ public class Seeder : ISeeder
         });
 
         _context.Categories.AddRange(categories);
+        _context.SaveChanges();
+    }
+
+    public void SeedAdmins()
+    {
+        if (_context.Users.Where(u => u.Role == Roles.Admin).Any()) return;
+
+        var seedAdmin = _configuration.GetSection(AppSettings.AdminSeedSection).Get<SeederDTO.AdminSeederDTO>();
+
+        if (seedAdmin == null) return;
+
+        var admin = new User()
+        {
+            Id = seedAdmin.Id,
+            Name = seedAdmin.Name,
+            Email = seedAdmin.Email,
+            PasswordHash = PasswordHasherHelper.HashPassword(seedAdmin.Password),
+            Role = Roles.Admin
+        };
+
+        _context.Users.Add(admin);
         _context.SaveChanges();
     }
 }

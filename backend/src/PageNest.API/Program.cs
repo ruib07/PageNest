@@ -50,6 +50,7 @@ static void SeedDatabase(IServiceProvider serviceProvider)
 
     seedService.SeedGenres();
     seedService.SeedCategories();
+    seedService.SeedAdmins();
 }
 
 public partial class Program { }
