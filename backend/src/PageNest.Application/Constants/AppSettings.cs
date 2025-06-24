@@ -12,4 +12,7 @@ public class AppSettings
     public const string UserRole = "User";
     public const string AdminRole = "Admin";
     public const string AdminUserRole = "Admin&User";
+
+    public const string GenreSeedSection = "SeedGenres";
+    public const string CategorySeedSection = "SeedCategories";
 }
