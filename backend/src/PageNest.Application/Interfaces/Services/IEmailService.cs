@@ -1,6 +1,6 @@
 ﻿using System.Net.Mail;
 
-namespace PageNest.Application.Interfaces;
+namespace PageNest.Application.Interfaces.Services;
 
 public interface IEmailService
 {
