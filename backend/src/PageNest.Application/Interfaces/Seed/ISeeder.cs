@@ -1,4 +1,4 @@
-﻿namespace PageNest.Application.Interfaces;
+﻿namespace PageNest.Application.Interfaces.Seed;
 
 public interface ISeeder
 {

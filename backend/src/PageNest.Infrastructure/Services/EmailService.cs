@@ -1,5 +1,5 @@
 ﻿using Microsoft.Extensions.Configuration;
-using PageNest.Application.Interfaces;
+using PageNest.Application.Interfaces.Services;
 using System.Net;
 using System.Net.Mail;
 

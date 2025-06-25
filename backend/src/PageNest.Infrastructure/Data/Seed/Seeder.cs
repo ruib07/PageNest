@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using PageNest.Application.Constants;
 using PageNest.Application.Helpers;
-using PageNest.Application.Interfaces;
+using PageNest.Application.Interfaces.Seed;
 using PageNest.Application.Shared.DTOs;
 using PageNest.Domain.Entities;
 using PageNest.Domain.Enums;

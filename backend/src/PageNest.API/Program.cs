@@ -1,6 +1,9 @@
 using PageNest.API.Configurations;
 using PageNest.Application.Constants;
-using PageNest.Application.Interfaces;
+using PageNest.Application.Interfaces.Repositories;
+using PageNest.Application.Interfaces.Seed;
+using PageNest.Application.Interfaces.Services;
+using PageNest.Infrastructure.Data.Repositories;
 using PageNest.Infrastructure.Data.Seed;
 using PageNest.Infrastructure.Services;
 
@@ -14,6 +17,16 @@ builder.Services.AddCustomSecurity(configuration);
 builder.Services.AddCustomDatabaseConfiguration(configuration);
 
 builder.Services.AddScoped<ISeeder, Seeder>();
+
+builder.Services.AddScoped<IBookGenreRepository, BookGenreRepository>();
+builder.Services.AddScoped<IBookRepository, BookRepository>();
+builder.Services.AddScoped<ICartItemRepository, CartItemRepository>();
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+builder.Services.AddScoped<IGenreRepository, GenreRepository>();
+builder.Services.AddScoped<IOrderItemRepository, OrderItemRepository>();
+builder.Services.AddScoped<IOrderRepository, OrderRepository>();
+builder.Services.AddScoped<IReviewRepository, ReviewRepository>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 builder.Services.AddScoped<IEmailService, EmailService>();
 
