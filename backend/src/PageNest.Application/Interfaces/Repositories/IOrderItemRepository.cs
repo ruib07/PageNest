@@ -8,7 +8,4 @@ public interface IOrderItemRepository
     Task<IEnumerable<OrderItem>> GetOrderItemsByOrderId(Guid orderId);
     Task<IEnumerable<OrderItem>> GetOrderItemsByBookId(Guid bookId);
     Task<OrderItem> GetOrderItemById(Guid orderItemId);
-    Task<OrderItem> CreateOrderItem(OrderItem orderItem);
-    Task UpdateOrderItem(OrderItem orderItem);
-    Task DeleteOrderItem(Guid orderItemId);
 }
