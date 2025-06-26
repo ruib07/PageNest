@@ -28,7 +28,16 @@ builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 builder.Services.AddScoped<IReviewRepository, ReviewRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 
+builder.Services.AddScoped<IBookGenresService, BookGenresService>();
+builder.Services.AddScoped<IBooksService, BooksService>();
+builder.Services.AddScoped<ICartItemsService, CartItemsService>();
+builder.Services.AddScoped<ICategoriesService, CategoriesService>();
 builder.Services.AddScoped<IEmailService, EmailService>();
+builder.Services.AddScoped<IGenresService, GenresService>();
+builder.Services.AddScoped<IOrderItemsService, OrderItemsService>();
+builder.Services.AddScoped<IOrdersService, OrdersService>();
+builder.Services.AddScoped<IReviewsService, ReviewsService>();
+builder.Services.AddScoped<IUsersService, UsersService>();
 
 builder.Services.AddAuthorizationBuilder()
                 .AddPolicy(AppSettings.AdminRole, policy => policy.RequireRole(AppSettings.AdminRole))

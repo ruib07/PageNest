@@ -34,26 +34,4 @@ public class OrderItemRepository : IOrderItemRepository
     {
         return await OrderItems.FirstOrDefaultAsync(oi => oi.Id == orderItemId);
     }
-
-    public async Task<OrderItem> CreateOrderItem(OrderItem orderItem)
-    {
-        await OrderItems.AddAsync(orderItem);
-        await _context.SaveChangesAsync();
-
-        return orderItem;
-    }
-
-    public async Task UpdateOrderItem(OrderItem orderItem)
-    {
-        OrderItems.Update(orderItem);
-        await _context.SaveChangesAsync();
-    }
-
-    public async Task DeleteOrderItem(Guid orderItemId)
-    {
-        var orderItem = await GetOrderItemById(orderItemId);
-
-        OrderItems.Remove(orderItem);
-        await _context.SaveChangesAsync();
-    }
 }
