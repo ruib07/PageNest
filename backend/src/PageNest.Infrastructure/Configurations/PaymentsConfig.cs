@@ -14,6 +14,7 @@ public class PaymentsConfig : IEntityTypeConfiguration<Payment>
         builder.Property(p => p.Amount).IsRequired().HasColumnType("decimal(18,2)");
         builder.Property(p => p.StripePaymentIntentId).IsRequired().HasMaxLength(255);
         builder.Property(p => p.Status).IsRequired();
+        builder.Property<DateTime>("CreatedAt").HasDefaultValueSql("GETUTCDATE()");
 
         builder.HasOne(p => p.Order)
                .WithOne(o => o.Payment)
