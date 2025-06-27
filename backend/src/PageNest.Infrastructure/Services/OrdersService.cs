@@ -85,7 +85,7 @@ public class OrdersService : IOrdersService
 
     private static Result<bool> ValidateOrderFields(Order order)
     {
-        if (!Enum.IsDefined(typeof(Status), order.Status))
+        if (!Enum.IsDefined(typeof(OrderStatus), order.Status))
             return Result<bool>.Fail("Invalid status.", 400);
 
         if (order.OrderItems == null || !order.OrderItems.Any())
