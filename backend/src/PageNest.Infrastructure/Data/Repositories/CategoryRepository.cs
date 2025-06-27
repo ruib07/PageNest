@@ -21,7 +21,7 @@ public class CategoryRepository : ICategoryRepository
         return await Categories.AsNoTracking().ToListAsync();
     }
 
-    public async Task<IEnumerable<Book>> GetBooksByCategory(Guid categoryId)
+    public async Task<IEnumerable<Book>> GetBooksByCategoryId(Guid categoryId)
     {
         return await Books.AsNoTracking().Where(b => b.CategoryId == categoryId).ToListAsync();
     }

@@ -9,9 +9,9 @@ public class AppSettings
     public const string ApiVersion = "v1";
     public const string TokenType = "Bearer";
     public const string ClaimId = "id";
+    public const string ClaimEmail = "email";
     public const string UserRole = "User";
     public const string AdminRole = "Admin";
-    public const string AdminUserRole = "Admin&User";
 
     public const string GenreSeedSection = "SeedGenres";
     public const string CategorySeedSection = "SeedCategories";

@@ -19,9 +19,9 @@ public class CategoriesService : ICategoriesService
         return await _categoryRepository.GetCategories();
     }
 
-    public async Task<IEnumerable<Book>> GetBooksByCategory(Guid categoryId)
+    public async Task<IEnumerable<Book>> GetBooksByCategoryId(Guid categoryId)
     {
-        return await _categoryRepository.GetBooksByCategory(categoryId);
+        return await _categoryRepository.GetBooksByCategoryId(categoryId);
     }
 
     public async Task<Result<Category>> GetCategoryById(Guid categoryId)
