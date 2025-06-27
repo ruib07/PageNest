@@ -18,7 +18,7 @@ public class BookGenresController : ControllerBase
     }
 
     // GET api/v1/bookgenres
-    [Authorize(Policy = AppSettings.AdminRole)]
+    [Authorize]
     [HttpGet]
     public async Task<ActionResult<IEnumerable<BookGenre>>> GetBookGenres()
     {
@@ -26,7 +26,7 @@ public class BookGenresController : ControllerBase
     }
 
     // GET api/v1/bookgenres/book/{bookId}
-    [Authorize(Policy = AppSettings.AdminRole)]
+    [Authorize]
     [HttpGet("books/{bookId}")]
     public async Task<ActionResult<IEnumerable<BookGenre>>> GetBookGenresByBookId(Guid bookId)
     {
@@ -34,7 +34,7 @@ public class BookGenresController : ControllerBase
     }
 
     // GET api/v1/bookgenres/genre/{genreId}
-    [Authorize(Policy = AppSettings.AdminRole)]
+    [Authorize]
     [HttpGet("genre/{genreId}")]
     public async Task<ActionResult<IEnumerable<BookGenre>>> GetBookGenresByGenreId(Guid genreId)
     {
