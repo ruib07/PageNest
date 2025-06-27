@@ -1,7 +1,12 @@
-using PageNest.Workers;
+using PageNest.API.Configurations;
+using PageNest.Workers.Jobs;
 
 var builder = Host.CreateApplicationBuilder(args);
-builder.Services.AddHostedService<Worker>();
+ConfigurationManager configuration = builder.Configuration;
+
+builder.Services.AddCustomDatabaseConfiguration(configuration);
+
+builder.Services.AddHostedService<RefreshTokensCleanupJob>();
 
 var host = builder.Build();
 host.Run();
