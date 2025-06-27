@@ -17,10 +17,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<Folder Include="Controllers\" />
-	</ItemGroup>
-
-	<ItemGroup>
 	  <ProjectReference Include="..\PageNest.Application\PageNest.Application.csproj" />
 	  <ProjectReference Include="..\PageNest.Infrastructure\PageNest.Infrastructure.csproj" />
 	</ItemGroup>

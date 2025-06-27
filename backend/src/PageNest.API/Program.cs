@@ -41,8 +41,7 @@ builder.Services.AddScoped<IUsersService, UsersService>();
 
 builder.Services.AddAuthorizationBuilder()
                 .AddPolicy(AppSettings.AdminRole, policy => policy.RequireRole(AppSettings.AdminRole))
-                .AddPolicy(AppSettings.UserRole, policy => policy.RequireRole(AppSettings.UserRole))
-                .AddPolicy(AppSettings.AdminUserRole, policy => policy.RequireRole(AppSettings.AdminRole, AppSettings.UserRole));
+                .AddPolicy(AppSettings.UserRole, policy => policy.RequireRole(AppSettings.UserRole));
 
 builder.Services.AddCors(options =>
 {

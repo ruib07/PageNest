@@ -19,7 +19,7 @@ public class GenresService : IGenresService
         return await _genreRepository.GetGenres();
     }
 
-    public async Task<IEnumerable<Book>> GetBooksByGenre(Guid genreId)
+    public async Task<IEnumerable<Book>> GetBooksByGenreId(Guid genreId)
     {
         return await _genreRepository.GetBooksByGenre(genreId);
     }

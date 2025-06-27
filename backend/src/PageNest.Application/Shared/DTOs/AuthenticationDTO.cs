@@ -13,6 +13,6 @@ public static class AuthenticationDTO
 
     public static class SignUp
     {
-        public record Request(string Name, string Email, string Password, Roles Role);
+        public record Request(string Name, string Email, string Password);
     }
 }

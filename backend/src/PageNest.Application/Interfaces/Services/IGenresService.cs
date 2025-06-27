@@ -6,7 +6,7 @@ namespace PageNest.Application.Interfaces.Services;
 public interface IGenresService
 {
     Task<IEnumerable<Genre>> GetGenres();
-    Task<IEnumerable<Book>> GetBooksByGenre(Guid genreId);
+    Task<IEnumerable<Book>> GetBooksByGenreId(Guid genreId);
     Task<Result<Genre>> GetGenreById(Guid genreId);
     Task<Result<Genre>> GetGenreByName(string genreName);
 }
