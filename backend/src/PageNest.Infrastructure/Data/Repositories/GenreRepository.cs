@@ -24,6 +24,7 @@ public class GenreRepository : IGenreRepository
     public async Task<IEnumerable<Book>> GetBooksByGenre(Guid genreId)
     {
         return await Books.AsNoTracking()
+                          .Include(b => b.BookGenres)
                           .Where(b => b.BookGenres.Any(bg => bg.GenreId == genreId))
                           .ToListAsync();
     }
