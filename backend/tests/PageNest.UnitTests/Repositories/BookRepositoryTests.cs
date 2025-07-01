@@ -135,7 +135,7 @@ public class BookRepositoryTests : TestBase
 
         _context.Entry(createBook).State = EntityState.Detached;
 
-        var updatedBook = BooksBuilder.UpdateBook(createBook.Id, createBook.CategoryId);
+        var updatedBook = BooksBuilder.UpdateBook(createBook.Id, createBook.CategoryId, createBook.LanguageId);
         await _bookRepository.UpdateBook(updatedBook);
 
         var result = await _bookRepository.GetBookById(createBook.Id);

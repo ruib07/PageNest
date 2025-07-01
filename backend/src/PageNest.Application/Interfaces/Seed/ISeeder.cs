@@ -4,5 +4,6 @@ public interface ISeeder
 {
     void SeedGenres();
     void SeedCategories();
+    void SeedLanguages();
     void SeedAdmins();
 }

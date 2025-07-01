@@ -9,7 +9,8 @@ public class Book
     public DateTime PublishedDate { get; set; }
     public string ISBN { get; set; }
     public int PageCount { get; set; }
-    public string Language { get; set; }
+    public Guid LanguageId { get; set; }
+    public Language Language { get; set; }
     public string CoverImageUrl { get; set; }
     public int Stock { get; set; }
     public decimal Price { get; set; }

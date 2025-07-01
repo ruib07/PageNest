@@ -56,6 +56,26 @@ public class Seeder : ISeeder
         _context.SaveChanges();
     }
 
+    public void SeedLanguages()
+    {
+        if (_context.Languages.Any()) return;
+
+        var seedLanguages = _configuration.GetSection(AppSettings.LanguageSeedSection).Get<List<SeederDTO.LanguageSeederDTO>>();
+
+        if (seedLanguages == null || !seedLanguages.Any()) return;
+
+        var languages = seedLanguages.Select(l => new Language()
+        {
+            Id = l.Id,
+            Name = l.Name,
+            Code = l.Code,
+            CultureCode = l.CultureCode
+        });
+
+        _context.Languages.AddRange(languages);
+        _context.SaveChanges();
+    }
+
     public void SeedAdmins()
     {
         if (_context.Users.Where(u => u.Role == Roles.Admin).Any()) return;
