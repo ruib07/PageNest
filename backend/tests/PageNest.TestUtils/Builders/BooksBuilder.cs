@@ -34,7 +34,7 @@ public class BooksBuilder
         return books;
     }
 
-    public static Book InvalidBookCreation(string title, string author, string description, string isbn, int pageCount, 
+    public static Book InvalidBookCreation(string title, string author, string description, DateTime publishedDate, string isbn, int pageCount, 
                                                 string language, string coverImageUrl, int stock, decimal price)
     {
         return new Book()
@@ -43,7 +43,7 @@ public class BooksBuilder
             Title = title,
             Author = author,
             Description = description,
-            PublishedDate = DateTime.UtcNow,
+            PublishedDate = publishedDate,
             ISBN = isbn,
             PageCount = pageCount,
             Language = language,

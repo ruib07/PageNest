@@ -46,7 +46,7 @@ public class UsersController : ControllerBase
 
         if (!result.IsSuccess) return StatusCode(result.Error.StatusCode, result.Error);
 
-        return Ok(result.Message ?? "User updated successfully.");
+        return Ok(result.Message);
     }
 
     // DELETE api/v1/users/{userId}
