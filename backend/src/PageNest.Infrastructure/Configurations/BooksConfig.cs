@@ -17,7 +17,6 @@ public class BooksConfig : IEntityTypeConfiguration<Book>
         builder.Property(b => b.PublishedDate).IsRequired();
         builder.Property(b => b.ISBN).IsRequired().HasMaxLength(20);
         builder.Property(b => b.PageCount).IsRequired();
-        builder.Property(b => b.Language).IsRequired().HasMaxLength(3);
         builder.Property(b => b.CoverImageUrl).IsRequired().HasMaxLength(2048);
         builder.Property(b => b.Stock).IsRequired();
         builder.Property(b => b.Price).IsRequired().HasColumnType("decimal(10, 2)");
@@ -39,5 +38,11 @@ public class BooksConfig : IEntityTypeConfiguration<Book>
                .HasForeignKey(b => b.BookId)
                .IsRequired()
                .OnDelete(DeleteBehavior.Cascade);
+
+        builder.HasOne(b => b.Language)
+               .WithMany(b => b.Books)
+               .HasForeignKey(b => b.LanguageId)
+               .IsRequired()
+               .OnDelete(DeleteBehavior.Restrict);
     }
 }

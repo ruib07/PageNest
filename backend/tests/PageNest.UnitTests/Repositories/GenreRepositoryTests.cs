@@ -53,7 +53,7 @@ public class GenreRepositoryTests : TestBase
             PublishedDate = DateTime.UtcNow,
             ISBN = "1234567890",
             PageCount = 100,
-            Language = "EN",
+            LanguageId = Guid.NewGuid(),
             CoverImageUrl = "",
             Stock = 10,
             Price = 9.99m,

@@ -106,7 +106,7 @@ public class BooksService : IBooksService
         if (book.PageCount <= 0) 
             return Result<bool>.Fail("Page count must be greater than zero.", 400);
 
-        if (string.IsNullOrWhiteSpace(book.Language))
+        if (book.LanguageId == Guid.Empty)
             return Result<bool>.Fail("Language cannot be empty.", 400);
 
         if (string.IsNullOrWhiteSpace(book.CoverImageUrl))

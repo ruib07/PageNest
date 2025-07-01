@@ -54,7 +54,7 @@ public class CategoryRepositoryTests : TestBase
             PublishedDate = DateTime.UtcNow,
             ISBN = "1234567890",
             PageCount = 100,
-            Language = "EN",
+            LanguageId = Guid.NewGuid(),
             CoverImageUrl = "http://example.com/cover.jpg",
             Stock = 10,
             Price = 9.99m,

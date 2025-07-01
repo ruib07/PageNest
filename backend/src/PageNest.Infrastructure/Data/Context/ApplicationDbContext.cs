@@ -14,6 +14,7 @@ public class ApplicationDbContext : DbContext
     public DbSet<Category> Categories { get; set; }
     public DbSet<Genre> Genres { get; set; }
     public DbSet<BookGenre> BookGenres { get; set; }
+    public DbSet<Language> Languages { get; set; }
     public DbSet<Book> Books { get; set; }
     public DbSet<Review> Reviews { get; set; }
     public DbSet<Order> Orders { get; set; }

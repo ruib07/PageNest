@@ -12,8 +12,8 @@ using PageNest.Infrastructure.Data.Context;
 namespace PageNest.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250627153950_CreatedAtFieldPayments")]
-    partial class CreatedAtFieldPayments
+    [Migration("20250701133729_PageNestNewDB")]
+    partial class PageNestNewDB
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -54,10 +54,8 @@ namespace PageNest.Infrastructure.Migrations
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
 
-                    b.Property<string>("Language")
-                        .IsRequired()
-                        .HasMaxLength(3)
-                        .HasColumnType("nvarchar(3)");
+                    b.Property<Guid>("LanguageId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("PageCount")
                         .HasColumnType("int");
@@ -79,6 +77,8 @@ namespace PageNest.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
+
+                    b.HasIndex("LanguageId");
 
                     b.ToTable("Books", (string)null);
                 });
@@ -158,6 +158,32 @@ namespace PageNest.Infrastructure.Migrations
                         .IsUnique();
 
                     b.ToTable("Genres", (string)null);
+                });
+
+            modelBuilder.Entity("PageNest.Domain.Entities.Language", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Code")
+                        .IsRequired()
+                        .HasMaxLength(3)
+                        .HasColumnType("nvarchar(3)");
+
+                    b.Property<string>("CultureCode")
+                        .IsRequired()
+                        .HasMaxLength(10)
+                        .HasColumnType("nvarchar(10)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Languages", (string)null);
                 });
 
             modelBuilder.Entity("PageNest.Domain.Entities.Order", b =>
@@ -387,7 +413,15 @@ namespace PageNest.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("PageNest.Domain.Entities.Language", "Language")
+                        .WithMany("Books")
+                        .HasForeignKey("LanguageId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
                     b.Navigation("Category");
+
+                    b.Navigation("Language");
                 });
 
             modelBuilder.Entity("PageNest.Domain.Entities.BookGenre", b =>
@@ -529,6 +563,11 @@ namespace PageNest.Infrastructure.Migrations
             modelBuilder.Entity("PageNest.Domain.Entities.Genre", b =>
                 {
                     b.Navigation("BookGenres");
+                });
+
+            modelBuilder.Entity("PageNest.Domain.Entities.Language", b =>
+                {
+                    b.Navigation("Books");
                 });
 
             modelBuilder.Entity("PageNest.Domain.Entities.Order", b =>

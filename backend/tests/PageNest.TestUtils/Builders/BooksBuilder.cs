@@ -21,7 +21,7 @@ public class BooksBuilder
                 PublishedDate = DateTime.UtcNow,
                 ISBN = $"ISBN-{_counter}",
                 PageCount = 100 + _counter,
-                Language = "PT",
+                LanguageId = Guid.NewGuid(),
                 CoverImageUrl = $"https://example.com/cover{_counter}.jpg",
                 Stock = 10 + _counter,
                 Price = 19.99m + _counter,
@@ -35,7 +35,7 @@ public class BooksBuilder
     }
 
     public static Book InvalidBookCreation(string title, string author, string description, DateTime publishedDate, string isbn, int pageCount, 
-                                                string language, string coverImageUrl, int stock, decimal price)
+                                                Guid languageId, string coverImageUrl, int stock, decimal price)
     {
         return new Book()
         {
@@ -46,7 +46,7 @@ public class BooksBuilder
             PublishedDate = publishedDate,
             ISBN = isbn,
             PageCount = pageCount,
-            Language = language,
+            LanguageId = languageId,
             CoverImageUrl = coverImageUrl,
             Stock = stock,
             Price = price,
@@ -54,7 +54,7 @@ public class BooksBuilder
         };
     }
 
-    public static Book UpdateBook(Guid id, Guid categoryId)
+    public static Book UpdateBook(Guid id, Guid categoryId, Guid languageId)
     {
         return new Book()
         {
@@ -65,7 +65,7 @@ public class BooksBuilder
             PublishedDate = DateTime.UtcNow,
             ISBN = $"Updated-ISBN-{_counter}",
             PageCount = 150 + _counter,
-            Language = "EN",
+            LanguageId = languageId,
             CoverImageUrl = $"https://example.com/updated-cover{_counter}.jpg",
             Stock = 20 + _counter,
             Price = 29.99m + _counter,

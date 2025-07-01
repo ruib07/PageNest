@@ -155,7 +155,7 @@ public class BooksServiceTests : TestBase
     public async Task CreateBook_ShouldReturnBadRequest_WhenTitleIsEmpty()
     {
         var book = BooksBuilder.InvalidBookCreation(string.Empty, "Author", "Book Description", DateTime.UtcNow, "123456789", 
-                                                        120, "PT", "https://example.com/cover.jpg", 12, 19.99m);
+                                                        120, Guid.NewGuid(), "https://example.com/cover.jpg", 12, 19.99m);
 
         _bookRepositoryMock.Setup(repo => repo.CreateBook(book)).ReturnsAsync(book);
 
@@ -173,7 +173,7 @@ public class BooksServiceTests : TestBase
     public async Task CreateBook_ShouldReturnBadRequest_WhenAuthorIsEmpty()
     {
         var book = BooksBuilder.InvalidBookCreation("Book Title", string.Empty, "Book Description", DateTime.UtcNow, "123456789", 
-                                                        120, "PT", "https://example.com/cover.jpg", 12, 19.99m);
+                                                        120, Guid.NewGuid(), "https://example.com/cover.jpg", 12, 19.99m);
 
         _bookRepositoryMock.Setup(repo => repo.CreateBook(book)).ReturnsAsync(book);
 
@@ -191,7 +191,7 @@ public class BooksServiceTests : TestBase
     public async Task CreateBook_ShouldReturnBadRequest_WhenDescriptionIsEmpty()
     {
         var book = BooksBuilder.InvalidBookCreation("Book Title", "Author", string.Empty, DateTime.UtcNow, "123456789", 
-                                                        120, "PT", "https://example.com/cover.jpg", 12, 19.99m);
+                                                        120, Guid.NewGuid(), "https://example.com/cover.jpg", 12, 19.99m);
 
         _bookRepositoryMock.Setup(repo => repo.CreateBook(book)).ReturnsAsync(book);
 
@@ -209,7 +209,7 @@ public class BooksServiceTests : TestBase
     public async Task CreateBook_ShouldReturnBadRequest_WhenPublishedDateIsMinValue()
     {
         var book = BooksBuilder.InvalidBookCreation("Book Title", "Author", "Book Description", DateTime.MinValue, "123456789",
-                                                        120, "PT", "https://example.com/cover.jpg", 12, 19.99m);
+                                                        120, Guid.NewGuid(), "https://example.com/cover.jpg", 12, 19.99m);
 
         _bookRepositoryMock.Setup(repo => repo.CreateBook(book)).ReturnsAsync(book);
 
@@ -227,7 +227,7 @@ public class BooksServiceTests : TestBase
     public async Task CreateBook_ShouldReturnBadRequest_WhenISBNIsEmpty()
     {
         var book = BooksBuilder.InvalidBookCreation("Book Title", "Author", "Book Description", DateTime.UtcNow, string.Empty,
-                                                        120, "PT", "https://example.com/cover.jpg", 12, 19.99m);
+                                                        120, Guid.NewGuid(), "https://example.com/cover.jpg", 12, 19.99m);
 
         _bookRepositoryMock.Setup(repo => repo.CreateBook(book)).ReturnsAsync(book);
 
@@ -245,7 +245,7 @@ public class BooksServiceTests : TestBase
     public async Task CreateBook_ShouldReturnBadRequest_WhenPageCountIsNegative()
     {
         var book = BooksBuilder.InvalidBookCreation("Book Title", "Author", "Book Description", DateTime.UtcNow, "123456789",
-                                                        -1, "PT", "https://example.com/cover.jpg", 12, 19.99m);
+                                                        -1, Guid.NewGuid(), "https://example.com/cover.jpg", 12, 19.99m);
 
         _bookRepositoryMock.Setup(repo => repo.CreateBook(book)).ReturnsAsync(book);
 
@@ -263,7 +263,7 @@ public class BooksServiceTests : TestBase
     public async Task CreateBook_ShouldReturnBadRequest_WhenPageCountIsZero()
     {
         var book = BooksBuilder.InvalidBookCreation("Book Title", "Author", "Book Description", DateTime.UtcNow, "123456789",
-                                                        0, "PT", "https://example.com/cover.jpg", 12, 19.99m);
+                                                        0, Guid.NewGuid(), "https://example.com/cover.jpg", 12, 19.99m);
 
         _bookRepositoryMock.Setup(repo => repo.CreateBook(book)).ReturnsAsync(book);
 
@@ -281,7 +281,7 @@ public class BooksServiceTests : TestBase
     public async Task CreateBook_ShouldReturnBadRequest_WhenLanguageIsEmpty()
     {
         var book = BooksBuilder.InvalidBookCreation("Book Title", "Author", "Book Description", DateTime.UtcNow, "123456789",
-                                                        120, string.Empty, "https://example.com/cover.jpg", 12, 19.99m);
+                                                        120, Guid.Empty, "https://example.com/cover.jpg", 12, 19.99m);
 
         _bookRepositoryMock.Setup(repo => repo.CreateBook(book)).ReturnsAsync(book);
 
@@ -299,7 +299,7 @@ public class BooksServiceTests : TestBase
     public async Task CreateBook_ShouldReturnBadRequest_WhenCoverImageURLIsEmpty()
     {
         var book = BooksBuilder.InvalidBookCreation("Book Title", "Author", "Book Description", DateTime.UtcNow, "123456789",
-                                                        120, "PT", string.Empty, 12, 19.99m);
+                                                        120, Guid.NewGuid(), string.Empty, 12, 19.99m);
 
         _bookRepositoryMock.Setup(repo => repo.CreateBook(book)).ReturnsAsync(book);
 
@@ -317,7 +317,7 @@ public class BooksServiceTests : TestBase
     public async Task CreateBook_ShouldReturnBadRequest_WhenStockIsNegative()
     {
         var book = BooksBuilder.InvalidBookCreation("Book Title", "Author", "Book Description", DateTime.UtcNow, "123456789",
-                                                        120, "PT", "https://example.com/cover.jpg", -1, 19.99m);
+                                                        120, Guid.NewGuid(), "https://example.com/cover.jpg", -1, 19.99m);
 
         _bookRepositoryMock.Setup(repo => repo.CreateBook(book)).ReturnsAsync(book);
 
@@ -335,7 +335,7 @@ public class BooksServiceTests : TestBase
     public async Task CreateBook_ShouldReturnBadRequest_WhenPriceIsNegative()
     {
         var book = BooksBuilder.InvalidBookCreation("Book Title", "Author", "Book Description", DateTime.UtcNow, "123456789",
-                                                        120, "PT", "https://example.com/cover.jpg", 12, -19.99m);
+                                                        120, Guid.NewGuid(), "https://example.com/cover.jpg", 12, -19.99m);
 
         _bookRepositoryMock.Setup(repo => repo.CreateBook(book)).ReturnsAsync(book);
 
@@ -353,7 +353,7 @@ public class BooksServiceTests : TestBase
     public async Task CreateBook_ShouldReturnBadRequest_WhenPriceIsZero()
     {
         var book = BooksBuilder.InvalidBookCreation("Book Title", "Author", "Book Description", DateTime.UtcNow, "123456789",
-                                                        120, "PT", "https://example.com/cover.jpg", 12, 00.00m);
+                                                        120, Guid.NewGuid(), "https://example.com/cover.jpg", 12, 00.00m);
 
         _bookRepositoryMock.Setup(repo => repo.CreateBook(book)).ReturnsAsync(book);
 
@@ -371,7 +371,7 @@ public class BooksServiceTests : TestBase
     public async Task UpdateBook_ShouldUpdateBookSuccessfully()
     {
         var book = BooksBuilder.CreateBooks().First();
-        var updatedBook = BooksBuilder.UpdateBook(book.Id, book.CategoryId);
+        var updatedBook = BooksBuilder.UpdateBook(book.Id, book.CategoryId, book.LanguageId);
 
         _bookRepositoryMock.Setup(repo => repo.CreateBook(book)).ReturnsAsync(book);
         _bookRepositoryMock.Setup(repo => repo.UpdateBook(updatedBook)).Returns(Task.CompletedTask);
@@ -394,7 +394,7 @@ public class BooksServiceTests : TestBase
     {
         var book = BooksBuilder.CreateBooks().First();
         var invalidUpdatedBook = BooksBuilder.InvalidBookCreation(string.Empty, "Author", "Book Description", DateTime.UtcNow, "123456789",
-                                                                    120, "PT", "https://example.com/cover.jpg", 12, 19.99m);
+                                                                    120, Guid.NewGuid(), "https://example.com/cover.jpg", 12, 19.99m);
 
         _bookRepositoryMock.Setup(repo => repo.CreateBook(book)).ReturnsAsync(book);
         _bookRepositoryMock.Setup(repo => repo.UpdateBook(invalidUpdatedBook)).Returns(Task.CompletedTask);
@@ -415,7 +415,7 @@ public class BooksServiceTests : TestBase
     {
         var book = BooksBuilder.CreateBooks().First();
         var invalidUpdatedBook = BooksBuilder.InvalidBookCreation("Book Title", string.Empty, "Book Description", DateTime.UtcNow, "123456789",
-                                                                    120, "PT", "https://example.com/cover.jpg", 12, 19.99m);
+                                                                    120, Guid.NewGuid(), "https://example.com/cover.jpg", 12, 19.99m);
 
         _bookRepositoryMock.Setup(repo => repo.CreateBook(book)).ReturnsAsync(book);
         _bookRepositoryMock.Setup(repo => repo.UpdateBook(invalidUpdatedBook)).Returns(Task.CompletedTask);
@@ -436,7 +436,7 @@ public class BooksServiceTests : TestBase
     {
         var book = BooksBuilder.CreateBooks().First();
         var invalidUpdatedBook = BooksBuilder.InvalidBookCreation("Book Title", "Author", string.Empty, DateTime.UtcNow, "123456789",
-                                                                    120, "PT", "https://example.com/cover.jpg", 12, 19.99m);
+                                                                    120, Guid.NewGuid(), "https://example.com/cover.jpg", 12, 19.99m);
 
         _bookRepositoryMock.Setup(repo => repo.CreateBook(book)).ReturnsAsync(book);
         _bookRepositoryMock.Setup(repo => repo.UpdateBook(invalidUpdatedBook)).Returns(Task.CompletedTask);
@@ -457,7 +457,7 @@ public class BooksServiceTests : TestBase
     {
         var book = BooksBuilder.CreateBooks().First();
         var invalidUpdatedBook = BooksBuilder.InvalidBookCreation("Book Title", "Author", "Book Description", DateTime.MinValue, "123456789",
-                                                                    120, "PT", "https://example.com/cover.jpg", 12, 19.99m);
+                                                                    120, Guid.NewGuid(), "https://example.com/cover.jpg", 12, 19.99m);
 
         _bookRepositoryMock.Setup(repo => repo.CreateBook(book)).ReturnsAsync(book);
         _bookRepositoryMock.Setup(repo => repo.UpdateBook(invalidUpdatedBook)).Returns(Task.CompletedTask);
@@ -478,7 +478,7 @@ public class BooksServiceTests : TestBase
     {
         var book = BooksBuilder.CreateBooks().First();
         var invalidUpdatedBook = BooksBuilder.InvalidBookCreation("Book Title", "Author", "Book Description", DateTime.UtcNow, string.Empty,
-                                                                    120, "PT", "https://example.com/cover.jpg", 12, 19.99m);
+                                                                    120, Guid.NewGuid(), "https://example.com/cover.jpg", 12, 19.99m);
 
         _bookRepositoryMock.Setup(repo => repo.CreateBook(book)).ReturnsAsync(book);
         _bookRepositoryMock.Setup(repo => repo.UpdateBook(invalidUpdatedBook)).Returns(Task.CompletedTask);
@@ -499,7 +499,7 @@ public class BooksServiceTests : TestBase
     {
         var book = BooksBuilder.CreateBooks().First();
         var invalidUpdatedBook = BooksBuilder.InvalidBookCreation("Book Title", "Author", "Book Description", DateTime.UtcNow, "123456789",
-                                                                    -1, "PT", "https://example.com/cover.jpg", 12, 19.99m);
+                                                                    -1, Guid.NewGuid(), "https://example.com/cover.jpg", 12, 19.99m);
 
         _bookRepositoryMock.Setup(repo => repo.CreateBook(book)).ReturnsAsync(book);
         _bookRepositoryMock.Setup(repo => repo.UpdateBook(invalidUpdatedBook)).Returns(Task.CompletedTask);
@@ -520,7 +520,7 @@ public class BooksServiceTests : TestBase
     {
         var book = BooksBuilder.CreateBooks().First();
         var invalidUpdatedBook = BooksBuilder.InvalidBookCreation("Book Title", "Author", "Book Description", DateTime.UtcNow, "123456789",
-                                                                    0, "PT", "https://example.com/cover.jpg", 12, 19.99m);
+                                                                    0, Guid.NewGuid(), "https://example.com/cover.jpg", 12, 19.99m);
 
         _bookRepositoryMock.Setup(repo => repo.CreateBook(book)).ReturnsAsync(book);
         _bookRepositoryMock.Setup(repo => repo.UpdateBook(invalidUpdatedBook)).Returns(Task.CompletedTask);
@@ -541,7 +541,7 @@ public class BooksServiceTests : TestBase
     {
         var book = BooksBuilder.CreateBooks().First();
         var invalidUpdatedBook = BooksBuilder.InvalidBookCreation("Book Title", "Author", "Book Description", DateTime.UtcNow, "123456789",
-                                                                    120, string.Empty, "https://example.com/cover.jpg", 12, 19.99m);
+                                                                    120, Guid.Empty, "https://example.com/cover.jpg", 12, 19.99m);
 
         _bookRepositoryMock.Setup(repo => repo.CreateBook(book)).ReturnsAsync(book);
         _bookRepositoryMock.Setup(repo => repo.UpdateBook(invalidUpdatedBook)).Returns(Task.CompletedTask);
@@ -562,7 +562,7 @@ public class BooksServiceTests : TestBase
     {
         var book = BooksBuilder.CreateBooks().First();
         var invalidUpdatedBook = BooksBuilder.InvalidBookCreation("Book Title", "Author", "Book Description", DateTime.UtcNow, "123456789",
-                                                                    120, "PT", string.Empty, 12, 19.99m);
+                                                                    120, Guid.NewGuid(), string.Empty, 12, 19.99m);
 
         _bookRepositoryMock.Setup(repo => repo.CreateBook(book)).ReturnsAsync(book);
         _bookRepositoryMock.Setup(repo => repo.UpdateBook(invalidUpdatedBook)).Returns(Task.CompletedTask);
@@ -583,7 +583,7 @@ public class BooksServiceTests : TestBase
     {
         var book = BooksBuilder.CreateBooks().First();
         var invalidUpdatedBook = BooksBuilder.InvalidBookCreation("Book Title", "Author", "Book Description", DateTime.UtcNow, "123456789",
-                                                                    120, "PT", "https://example.com/cover.jpg", -1, 19.99m);
+                                                                    120, Guid.NewGuid(), "https://example.com/cover.jpg", -1, 19.99m);
 
         _bookRepositoryMock.Setup(repo => repo.CreateBook(book)).ReturnsAsync(book);
         _bookRepositoryMock.Setup(repo => repo.UpdateBook(invalidUpdatedBook)).Returns(Task.CompletedTask);
@@ -604,7 +604,7 @@ public class BooksServiceTests : TestBase
     {
         var book = BooksBuilder.CreateBooks().First();
         var invalidUpdatedBook = BooksBuilder.InvalidBookCreation("Book Title", "Author", "Book Description", DateTime.UtcNow, "123456789",
-                                                                    120, "PT", "https://example.com/cover.jpg", 12, -19.99m);
+                                                                    120, Guid.NewGuid(), "https://example.com/cover.jpg", 12, -19.99m);
 
         _bookRepositoryMock.Setup(repo => repo.CreateBook(book)).ReturnsAsync(book);
         _bookRepositoryMock.Setup(repo => repo.UpdateBook(invalidUpdatedBook)).Returns(Task.CompletedTask);
@@ -625,7 +625,7 @@ public class BooksServiceTests : TestBase
     {
         var book = BooksBuilder.CreateBooks().First();
         var invalidUpdatedBook = BooksBuilder.InvalidBookCreation("Book Title", "Author", "Book Description", DateTime.UtcNow, "123456789",
-                                                                    120, "PT", "https://example.com/cover.jpg", 12, 00.00m);
+                                                                    120, Guid.NewGuid(), "https://example.com/cover.jpg", 12, 00.00m);
 
         _bookRepositoryMock.Setup(repo => repo.CreateBook(book)).ReturnsAsync(book);
         _bookRepositoryMock.Setup(repo => repo.UpdateBook(invalidUpdatedBook)).Returns(Task.CompletedTask);

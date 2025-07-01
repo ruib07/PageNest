@@ -78,6 +78,7 @@ static void SeedDatabase(IServiceProvider serviceProvider)
 
     seedService.SeedGenres();
     seedService.SeedCategories();
+    seedService.SeedLanguages();
     seedService.SeedAdmins();
 }
 
