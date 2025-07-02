@@ -30,19 +30,7 @@ public class UsersBuilder
         return users;
     }
 
-    public static User CreateUserByRole(Roles role)
-    {
-        return new User()
-        {
-            Id = Guid.NewGuid(),
-            Name = "User Name",
-            Email = "user@email.com",
-            PasswordHash = PasswordHasherHelper.HashPassword("User@Password-123"),
-            Role = role
-        };
-    }
-
-    public static User InvalidUserCreation(string name, string email, string password, Roles role)
+    public static User InvalidUserCreation(string name, string email, string password)
     {
         return new User()
         {
@@ -50,7 +38,7 @@ public class UsersBuilder
             Name = name,
             Email = email,
             PasswordHash = password,
-            Role = role
+            Role = Roles.User
         };
     }
 

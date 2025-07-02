@@ -27,7 +27,7 @@ public class BooksController : ControllerBase
 
     // GET api/v1/books/author/{authorName}
     [HttpGet("author/{authorName}")]
-    public async Task<IActionResult> GetBooksByAuthor(string authorName)
+    public async Task<ActionResult<IEnumerable<Book>>> GetBooksByAuthor(string authorName)
     {
         return Ok(await _booksService.GetBooksByAuthor(authorName));
     }
