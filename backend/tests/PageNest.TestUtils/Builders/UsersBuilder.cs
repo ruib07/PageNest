@@ -30,6 +30,18 @@ public class UsersBuilder
         return users;
     }
 
+    public static User CreateAdmin()
+    {
+        return new User()
+        {
+            Id = Guid.NewGuid(),
+            Name = "User Name",
+            Email = "user@email.com",
+            PasswordHash = PasswordHasherHelper.HashPassword("User@Password-123"),
+            Role = Roles.Admin
+        };
+    }
+
     public static User InvalidUserCreation(string name, string email, string password)
     {
         return new User()
