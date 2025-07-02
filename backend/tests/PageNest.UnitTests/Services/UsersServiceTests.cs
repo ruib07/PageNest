@@ -2,7 +2,6 @@
 using Moq;
 using PageNest.Application.Interfaces.Repositories;
 using PageNest.Domain.Entities;
-using PageNest.Domain.Enums;
 using PageNest.Infrastructure.Data.Context;
 using PageNest.Infrastructure.Services;
 using PageNest.TestUtils.Base;
@@ -101,7 +100,7 @@ public class UsersServiceTests : TestBase
     [Fact]
     public async Task CreateUser_ShouldReturnBadRequest_WhenUserNameIsEmpty()
     {
-        var user = UsersBuilder.InvalidUserCreation("", "user@email.com", "User@Password-123", Roles.User);
+        var user = UsersBuilder.InvalidUserCreation("", "user@email.com", "User@Password-123");
 
         _userRepositoryMock.Setup(repo => repo.CreateUser(user)).ReturnsAsync(user);
 
@@ -118,7 +117,7 @@ public class UsersServiceTests : TestBase
     [Fact]
     public async Task CreateUser_ShouldReturnBadRequest_WhenUserEmailIsEmpty()
     {
-        var user = UsersBuilder.InvalidUserCreation("User Name", "", "User@Password-123", Roles.User);
+        var user = UsersBuilder.InvalidUserCreation("User Name", "", "User@Password-123");
 
         _userRepositoryMock.Setup(repo => repo.CreateUser(user)).ReturnsAsync(user);
 
@@ -135,7 +134,7 @@ public class UsersServiceTests : TestBase
     [Fact]
     public async Task CreateUser_ShouldReturnBadRequest_WhenUserEmailIsInvalid()
     {
-        var user = UsersBuilder.InvalidUserCreation("User Name", "useremail.com", "User@Password-123", Roles.User);
+        var user = UsersBuilder.InvalidUserCreation("User Name", "useremail.com", "User@Password-123");
 
         _userRepositoryMock.Setup(repo => repo.CreateUser(user)).ReturnsAsync(user);
 
@@ -170,7 +169,7 @@ public class UsersServiceTests : TestBase
     [Fact]
     public async Task CreateUser_ShouldReturnBadRequest_WhenUserPasswordDoesNotMeetTheRequirements()
     {
-        var user = UsersBuilder.InvalidUserCreation("User Name", "user@email.com", "WrongPassword", Roles.User);
+        var user = UsersBuilder.InvalidUserCreation("User Name", "user@email.com", "WrongPassword");
 
         _userRepositoryMock.Setup(repo => repo.CreateUser(user)).ReturnsAsync(user);
 
@@ -182,23 +181,6 @@ public class UsersServiceTests : TestBase
             Assert.Equal(400, result.Error.StatusCode);
             Assert.Equal("Password must be at least 8 characters long and contain at least one uppercase letter, " +
                             "one lowercase letter, one number, and one special character.", result.Error.Message);
-        });
-    }
-
-    [Fact]
-    public async Task CreateUser_ShouldReturnBadRequest_WhenUserRoleIsInvalid()
-    {
-        var user = UsersBuilder.InvalidUserCreation("User Name", "user@email.com", "User@Password-123", (Roles)999);
-
-        _userRepositoryMock.Setup(repo => repo.CreateUser(user)).ReturnsAsync(user);
-
-        var result = await _usersService.CreateUser(user);
-
-        Assert.Multiple(() =>
-        {
-            Assert.False(result.IsSuccess);
-            Assert.Equal(400, result.Error.StatusCode);
-            Assert.Equal("Invalid role.", result.Error.Message);
         });
     }
 
@@ -338,7 +320,7 @@ public class UsersServiceTests : TestBase
     public async Task UpdateUser_ShouldReturnBadRequest_WhenUserNameIsEmpty()
     {
         var user = UsersBuilder.CreateUsers().First();
-        var invalidUpdatedUser = UsersBuilder.InvalidUserCreation("", "user@email.com", "User@Password-123", Roles.User);
+        var invalidUpdatedUser = UsersBuilder.InvalidUserCreation("", "user@email.com", "User@Password-123");
 
         _userRepositoryMock.Setup(repo => repo.CreateUser(user)).ReturnsAsync(user);
         _userRepositoryMock.Setup(repo => repo.UpdateUser(invalidUpdatedUser)).Returns(Task.CompletedTask);
@@ -358,7 +340,7 @@ public class UsersServiceTests : TestBase
     public async Task UpdateUser_ShouldReturnBadRequest_WhenUserEmailIsEmpty()
     {
         var user = UsersBuilder.CreateUsers().First();
-        var invalidUpdatedUser = UsersBuilder.InvalidUserCreation("User Updated", "", "User@Password-123", Roles.User);
+        var invalidUpdatedUser = UsersBuilder.InvalidUserCreation("User Updated", "", "User@Password-123");
 
         _userRepositoryMock.Setup(repo => repo.CreateUser(user)).ReturnsAsync(user);
         _userRepositoryMock.Setup(repo => repo.UpdateUser(invalidUpdatedUser)).Returns(Task.CompletedTask);
@@ -378,7 +360,7 @@ public class UsersServiceTests : TestBase
     public async Task UpdateUser_ShouldReturnBadRequest_WhenUserEmailIsInvalid()
     {
         var user = UsersBuilder.CreateUsers().First();
-        var invalidUpdatedUser = UsersBuilder.InvalidUserCreation("User Updated", "useremail.com", "User@Password-123", Roles.User);
+        var invalidUpdatedUser = UsersBuilder.InvalidUserCreation("User Updated", "useremail.com", "User@Password-123");
 
         _userRepositoryMock.Setup(repo => repo.CreateUser(user)).ReturnsAsync(user);
         _userRepositoryMock.Setup(repo => repo.UpdateUser(invalidUpdatedUser)).Returns(Task.CompletedTask);
@@ -398,8 +380,8 @@ public class UsersServiceTests : TestBase
     public async Task UpdateUser_ShouldReturnConflict_WhenUserEmailAlreadyExists()
     {
         var user = UsersBuilder.CreateUsers().First();
-        var existingUserWithSameEmail = UsersBuilder.InvalidUserCreation("Other User", user.Email, "User@Password-123", Roles.User);
-        var invalidUpdatedUser = UsersBuilder.InvalidUserCreation("User Updated", user.Email, "User@Password-123", Roles.User);
+        var existingUserWithSameEmail = UsersBuilder.InvalidUserCreation("Other User", user.Email, "User@Password-123");
+        var invalidUpdatedUser = UsersBuilder.InvalidUserCreation("User Updated", user.Email, "User@Password-123");
 
         _userRepositoryMock.Setup(repo => repo.CreateUser(user)).ReturnsAsync(user);
         _userRepositoryMock.Setup(repo => repo.UpdateUser(invalidUpdatedUser)).Returns(Task.CompletedTask);
@@ -420,7 +402,7 @@ public class UsersServiceTests : TestBase
     public async Task UpdateUser_ShouldReturnBadRequest_WhenUserPasswordDoesNotMeetTheRequirements()
     {
         var user = UsersBuilder.CreateUsers().First();
-        var invalidUpdatedUser = UsersBuilder.InvalidUserCreation("User Updated", "user@email.com", "Password", Roles.User);
+        var invalidUpdatedUser = UsersBuilder.InvalidUserCreation("User Updated", "user@email.com", "Password");
 
         _userRepositoryMock.Setup(repo => repo.CreateUser(user)).ReturnsAsync(user);
         _userRepositoryMock.Setup(repo => repo.UpdateUser(invalidUpdatedUser)).Returns(Task.CompletedTask);
@@ -434,26 +416,6 @@ public class UsersServiceTests : TestBase
             Assert.Equal(400, result.Error.StatusCode);
             Assert.Equal("Password must be at least 8 characters long and contain at least one uppercase letter, " +
                             "one lowercase letter, one number, and one special character.", result.Error.Message);
-        });
-    }
-
-    [Fact]
-    public async Task UpdateUser_ShouldReturnBadRequest_WhenUserRoleIsInvalid()
-    {
-        var user = UsersBuilder.CreateUsers().First();
-        var invalidUpdatedUser = UsersBuilder.InvalidUserCreation("User Updated", "user@email.com", "User@Password-123", (Roles)999);
-
-        _userRepositoryMock.Setup(repo => repo.CreateUser(user)).ReturnsAsync(user);
-        _userRepositoryMock.Setup(repo => repo.UpdateUser(invalidUpdatedUser)).Returns(Task.CompletedTask);
-        _userRepositoryMock.Setup(repo => repo.GetUserById(user.Id)).ReturnsAsync(user);
-
-        var result = await _usersService.UpdateUser(user.Id, invalidUpdatedUser);
-
-        Assert.Multiple(() =>
-        {
-            Assert.False(result.IsSuccess);
-            Assert.Equal(400, result.Error.StatusCode);
-            Assert.Equal("Invalid role.", result.Error.Message);
         });
     }
 
