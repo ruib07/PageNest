@@ -27,7 +27,7 @@ public class BookGenresController : ControllerBase
 
     // GET api/v1/bookgenres/book/{bookId}
     [Authorize]
-    [HttpGet("books/{bookId}")]
+    [HttpGet("book/{bookId}")]
     public async Task<ActionResult<IEnumerable<BookGenre>>> GetBookGenresByBookId(Guid bookId)
     {
         return Ok(await _bookGenresService.GetBookGenresByBookId(bookId));

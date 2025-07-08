@@ -21,9 +21,9 @@ public class OrderItemsConfig : IEntityTypeConfiguration<OrderItem>
                .OnDelete(DeleteBehavior.Cascade);
 
         builder.HasOne(oi => oi.Book)
-              .WithMany(oi => oi.OrderItems)
-              .HasForeignKey(oi => oi.BookId)
-              .IsRequired()
-              .OnDelete(DeleteBehavior.Cascade);
+               .WithMany(oi => oi.OrderItems)
+               .HasForeignKey(oi => oi.BookId)
+               .IsRequired()
+               .OnDelete(DeleteBehavior.Cascade);
     }
 }
