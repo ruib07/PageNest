@@ -25,7 +25,7 @@ public class GenresController : ControllerBase
 
     // GET api/v1/genres/books/{genreId}
     [HttpGet("books/{genreId}")]
-    public async Task<ActionResult<IEnumerable<Genre>>> GetBooksByGenreId(Guid genreId) 
+    public async Task<ActionResult<IEnumerable<Book>>> GetBooksByGenreId(Guid genreId) 
     {
         return Ok(await _genresService.GetBooksByGenreId(genreId));
     }

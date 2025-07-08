@@ -27,7 +27,8 @@ public class OrderRepository : IOrderRepository
 
     public async Task<Order> GetOrderById(Guid orderId)
     {
-        return await Orders.FirstOrDefaultAsync(o => o.Id == orderId);
+        return await Orders.Include(o => o.OrderItems)
+                           .FirstOrDefaultAsync(o => o.Id == orderId);
     }
 
     public async Task<Order> CreateOrder(Order order)
