@@ -6,7 +6,6 @@ using PageNest.Domain.Entities;
 namespace PageNest.API.Controllers;
 
 [Route($"api/{AppSettings.ApiVersion}/categories")]
-[ApiController]
 public class CategoriesController : ControllerBase
 {
     private readonly ICategoriesService _categoriesService;

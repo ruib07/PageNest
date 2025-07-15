@@ -6,7 +6,6 @@ using PageNest.Domain.Entities;
 namespace PageNest.API.Controllers;
 
 [Route($"api/{AppSettings.ApiVersion}/genres")]
-[ApiController]
 public class GenresController : ControllerBase
 {
     private readonly IGenresService _genresService;

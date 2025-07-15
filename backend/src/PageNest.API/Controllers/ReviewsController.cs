@@ -8,7 +8,6 @@ using PageNest.Domain.Entities;
 namespace PageNest.API.Controllers;
 
 [Route($"api/{AppSettings.ApiVersion}/reviews")]
-[ApiController]
 public class ReviewsController : ControllerBase
 {
     private readonly IReviewsService _reviewsService;

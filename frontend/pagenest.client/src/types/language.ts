@@ -4,3 +4,7 @@ export interface ILanguage {
   code: string;
   cultureCode: string;
 }
+
+export interface ILanguageRowProps {
+    language: ILanguage;
+}

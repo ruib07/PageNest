@@ -18,7 +18,6 @@ using System.Text;
 namespace PageNest.API.Controllers;
 
 [Route($"api/{AppSettings.ApiVersion}/auth")]
-[ApiController]
 public class AuthenticationsController : ControllerBase
 {
     private readonly ApplicationDbContext _context;

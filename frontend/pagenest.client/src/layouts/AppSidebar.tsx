@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router';
 import { useAuth } from '../context/AuthContext';
 import { useSidebar } from '../context/SidebarContext';
 import { AdminIcon, GridIcon, HorizontaLDots } from '../icons';
-import type { INavItem } from '../types/navItem';
+import type { INavItem } from '../types/global';
 
 export default function AppSidebar() {
   const { isExpanded, isMobileOpen, isHovered, setIsHovered } = useSidebar();
@@ -29,9 +29,12 @@ export default function AppSidebar() {
         name: 'Admin',
         icon: <AdminIcon />,
         subItems: [
-          { name: 'Courses', path: '/admin/courses' },
-          { name: 'Players', path: '/admin/players' },
-          { name: 'Users', path: '/admin/users' },
+          { name: 'Categories', path: '/admin/categories' },
+            { name: 'Genres', path: '/admin/genres' },
+            { name: 'Languages', path: '/admin/languages' },
+            { name: 'Books', path: '/admin/books' },
+            { name: 'Orders', path: '/admin/orders' },
+            { name: 'Payments', path: '/admin/payments' },
         ],
       },
     ];
