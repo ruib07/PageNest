@@ -8,7 +8,6 @@ using PageNest.Domain.Entities;
 namespace PageNest.API.Controllers;
 
 [Route($"api/{AppSettings.ApiVersion}/cartitems")]
-[ApiController]
 public class CartItemsController : ControllerBase
 {
     private readonly ICartItemsService _cartItemsService;

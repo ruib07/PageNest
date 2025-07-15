@@ -8,7 +8,6 @@ using PageNest.Domain.Entities;
 namespace PageNest.API.Controllers;
 
 [Route($"api/{AppSettings.ApiVersion}/books")]
-[ApiController]
 public class BooksController : ControllerBase
 {
     private readonly IBooksService _booksService;

@@ -7,7 +7,6 @@ using PageNest.Infrastructure.Data.Repositories;
 using PageNest.Infrastructure.Data.Seed;
 using PageNest.Infrastructure.Services;
 using PageNest.Infrastructure.Settings;
-using Stripe;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Configuration.AddJsonFile("appsettings.Seed.json", optional: true, reloadOnChange: false);
@@ -22,6 +21,7 @@ builder.Services.AddCustomDatabaseConfiguration(configuration);
 
 builder.Services.AddScoped<ISeeder, Seeder>();
 
+builder.Services.AddScoped<ILanguageRepository, LanguageRepository>();
 builder.Services.AddScoped<IBookGenreRepository, BookGenreRepository>();
 builder.Services.AddScoped<IBookRepository, BookRepository>();
 builder.Services.AddScoped<ICartItemRepository, CartItemRepository>();
@@ -33,6 +33,7 @@ builder.Services.AddScoped<IReviewRepository, ReviewRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IPaymentRepository, PaymentRepository>();
 
+builder.Services.AddScoped<ILanguagesService, LanguagesService>();
 builder.Services.AddScoped<IBookGenresService, BookGenresService>();
 builder.Services.AddScoped<IBooksService, BooksService>();
 builder.Services.AddScoped<ICartItemsService, CartItemsService>();

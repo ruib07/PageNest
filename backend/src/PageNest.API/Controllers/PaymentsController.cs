@@ -8,7 +8,6 @@ using PageNest.Domain.Entities;
 namespace PageNest.API.Controllers;
 
 [Route($"api/{AppSettings.ApiVersion}/payments")]
-[ApiController]
 public class PaymentsController : ControllerBase
 {
     private readonly IPaymentsService _paymentsService;

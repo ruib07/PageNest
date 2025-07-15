@@ -8,7 +8,6 @@ using PageNest.Domain.Entities;
 namespace PageNest.API.Controllers;
 
 [Route($"api/{AppSettings.ApiVersion}/orders")]
-[ApiController]
 public class OrdersController : ControllerBase
 {
     private readonly IOrdersService _ordersService;

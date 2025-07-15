@@ -11,9 +11,12 @@ export const navItems: INavItem[] = [
     name: 'Admin',
     icon: <AdminIcon />,
     subItems: [
-      { name: 'Courses', path: '/admin/courses' },
-      { name: 'Players', path: '/admin/players' },
-      { name: 'Users', path: '/admin/users' },
+      { name: 'Categories', path: '/admin/categories' },
+      { name: 'Genres', path: '/admin/genres' },
+      { name: 'Languages', path: '/admin/languages' },
+      { name: 'Books', path: '/admin/books' },
+      { name: 'Orders', path: '/admin/orders' },
+      { name: 'Payments', path: '/admin/payments' },
     ],
   },
 ];
