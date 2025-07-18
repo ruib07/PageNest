@@ -6,3 +6,7 @@ export interface IOrder {
   status: OrderStatus;
   total: number;
 }
+
+export interface IOrderRowProps {
+  order: IOrder;
+}

@@ -4,5 +4,5 @@ export interface IGenre {
 }
 
 export interface IGenreRowProps {
-    genre: IGenre;
+  genre: IGenre;
 }

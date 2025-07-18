@@ -9,10 +9,10 @@ export const showToast = (message: string, type: 'success' | 'error') => {
   });
 };
 
-export const showSuccessToast = (message = 'Sucesso') => {
+export const showSuccessToast = (message = 'Success') => {
   showToast(message, 'success');
 };
 
-export const showErrorToast = (message = 'Algo deu errado') => {
+export const showErrorToast = (message = 'Something went wrong') => {
   showToast(message, 'error');
 };

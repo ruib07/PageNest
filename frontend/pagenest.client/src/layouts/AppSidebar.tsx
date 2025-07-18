@@ -30,11 +30,11 @@ export default function AppSidebar() {
         icon: <AdminIcon />,
         subItems: [
           { name: 'Categories', path: '/admin/categories' },
-            { name: 'Genres', path: '/admin/genres' },
-            { name: 'Languages', path: '/admin/languages' },
-            { name: 'Books', path: '/admin/books' },
-            { name: 'Orders', path: '/admin/orders' },
-            { name: 'Payments', path: '/admin/payments' },
+          { name: 'Genres', path: '/admin/genres' },
+          { name: 'Languages', path: '/admin/languages' },
+          { name: 'Books', path: '/admin/books' },
+          { name: 'Orders', path: '/admin/orders' },
+          { name: 'Payments', path: '/admin/payments' },
         ],
       },
     ];

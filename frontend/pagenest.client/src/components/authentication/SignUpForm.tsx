@@ -22,8 +22,7 @@ export default function SignUpForm() {
   const navigate = useNavigate();
 
   const validateFields = () => {
-    const newErrors: { name?: string; email?: string; password?: string } =
-      {};
+    const newErrors: { name?: string; email?: string; password?: string } = {};
 
     if (!name.trim()) newErrors.name = 'Name is required.';
     if (!email.trim()) newErrors.email = 'Valid email is required.';

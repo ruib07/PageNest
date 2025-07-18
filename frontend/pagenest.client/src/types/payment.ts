@@ -5,10 +5,10 @@ export interface IPayment {
   orderId: string;
   amount: number | string;
   stripePaymentIntentId: string;
-    status: PaymentStatus;
-    createdAt?: Date;
+  status: PaymentStatus;
+  createdAt?: Date;
 }
 
 export interface IPaymentRowProps {
-    payment: IPayment;
+  payment: IPayment;
 }
