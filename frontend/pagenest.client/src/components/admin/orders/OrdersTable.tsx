@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
-import { GetPayments } from '../../../services/payments.service';
-import type { IPayment } from '../../../types/payment';
+import { GetOrders } from '../../../services/orders.service';
 import {
   Table,
   TableBody,
@@ -8,23 +7,23 @@ import {
   TableHeader,
   TableRow,
 } from '../../ui/Table';
-import PaymentRow from './PaymentRow';
+import OrderRow from './OrderRow';
 
-export default function PaymentsTable() {
-  const [payments, setPayments] = useState<IPayment[]>([]);
+export default function OrdersTable() {
+  const [orders, setOrders] = useState<IOrder[]>([]);
   const [, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    const fetchPayments = async () => {
+    const fetchOrders = async () => {
       try {
-        const response = await GetPayments();
-        setPayments(response.data);
+        const response = await GetOrders();
+        setOrders(response.data);
       } catch {
-        setError('Failed to fetch payments.');
+        setError('Failed to fetch orders.');
       }
     };
 
-    fetchPayments();
+    fetchOrders();
   }, []);
 
   return (
@@ -38,19 +37,7 @@ export default function PaymentsTable() {
                   isHeader
                   className="px-5 py-3 font-medium text-gray-500 text-start text-theme-xs dark:text-gray-400"
                 >
-                  Order ID
-                </TableCell>
-                <TableCell
-                  isHeader
-                  className="px-5 py-3 font-medium text-gray-500 text-start text-theme-xs dark:text-gray-400"
-                >
-                  Amount
-                </TableCell>
-                <TableCell
-                  isHeader
-                  className="px-5 py-3 font-medium text-gray-500 text-start text-theme-xs dark:text-gray-400"
-                >
-                  Stripe Payment Intent ID
+                  User
                 </TableCell>
                 <TableCell
                   isHeader
@@ -62,14 +49,14 @@ export default function PaymentsTable() {
                   isHeader
                   className="px-5 py-3 font-medium text-gray-500 text-start text-theme-xs dark:text-gray-400"
                 >
-                  Created At
+                  Total
                 </TableCell>
               </TableRow>
             </TableHeader>
 
             <TableBody className="divide-y divide-gray-100 dark:divide-white/[0.05]">
-              {payments.map((payment) => (
-                <PaymentRow key={payment.id} payment={payment} />
+              {orders.map((order) => (
+                <OrderRow key={order.id} order={order} />
               ))}
             </TableBody>
           </Table>

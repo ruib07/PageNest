@@ -1,24 +1,24 @@
-import LanguagesTable from '../../components/admin/languages/LanguagesTable';
 import ComponentCard from '../../components/common/ComponentCard';
 import PageBreadcrumb from '../../components/common/PageBreadCrumb';
 import PageMeta from '../../components/common/PageMeta';
+import OrdersTable from '../components/admin/orders/OrdersTable';
 
-export default function Languages() {
+export default function Orders() {
   return (
     <>
       <PageMeta
-        title="Languages Table"
-        description="This is the languages table to see all the available languages for the authenticated admin"
+        title="Orders Table"
+        description="This is the orders table to see all the available orders for the authenticated admin"
       />
-      <PageBreadcrumb pageTitle="Languages" />
+      <PageBreadcrumb pageTitle="Orders" />
       <div className="space-y-6">
         <ComponentCard title="">
           <div className="flex items-center justify-between">
             <h2 className="text-lg font-semibold text-gray-700 dark:text-gray-400">
-              All Languages
+              All Orders
             </h2>
           </div>
-          <LanguagesTable />
+          <OrdersTable />
         </ComponentCard>
       </div>
     </>

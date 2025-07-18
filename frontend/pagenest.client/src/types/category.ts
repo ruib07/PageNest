@@ -4,5 +4,5 @@ export interface ICategory {
 }
 
 export interface ICategoryRowProps {
-    category: ICategory;
+  category: ICategory;
 }

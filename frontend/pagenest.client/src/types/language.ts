@@ -6,5 +6,5 @@ export interface ILanguage {
 }
 
 export interface ILanguageRowProps {
-    language: ILanguage;
+  language: ILanguage;
 }
